@@ -1,6 +1,6 @@
 # color_picker
 
-A MacOS only plugin that shows the native color picker.
+A MacOS only Flutter plugin that shows the native color picker.
 Used in the [DevTools app](https://github.com/nank1ro/devtools)
 
 ## Getting Started
