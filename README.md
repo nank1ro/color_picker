@@ -18,3 +18,7 @@ Simple usage is:
 final colorPicker = ColorPicker();
 final color = await colorPicker.pick();
 ```
+
+## Constraints
+
+The minimum supported MacOS version is `10.15`.
