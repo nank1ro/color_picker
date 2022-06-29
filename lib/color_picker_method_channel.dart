@@ -16,6 +16,10 @@ class MethodChannelColorPicker extends ColorPickerPlatform {
     await windowManager.setOpacity(0);
 
     final jsonColor = await methodChannel.invokeMethod<Map>('pickColor');
+
+    // Shows again the app
+    await windowManager.setOpacity(1);
+
     if (jsonColor == null) return null;
 
     final colorMap = Map<String, double>.from(jsonColor);
@@ -28,9 +32,6 @@ class MethodChannelColorPicker extends ColorPickerPlatform {
     final effectiveGreen = (green * 255 / 1.0).round();
     final effectiveBlue = (blue * 255 ~/ 1.0).round();
     final effectiveAlpha = (alpha * 255 ~/ 1.0).round();
-
-    // Shows again the app
-    await windowManager.setOpacity(1);
 
     return Color.fromARGB(
       effectiveAlpha,
