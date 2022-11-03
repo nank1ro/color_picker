@@ -12,13 +12,7 @@ class MethodChannelColorPicker extends ColorPickerPlatform {
 
   @override
   Future<Color?> pickColor() async {
-    // Hides the app
-    await windowManager.setOpacity(0);
-
     final jsonColor = await methodChannel.invokeMethod<Map>('pickColor');
-
-    // Shows again the app
-    await windowManager.setOpacity(1);
 
     if (jsonColor == null) return null;
 
