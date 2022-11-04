@@ -20,10 +20,10 @@ class ColorPicker {
   }
 
   Future<void> _showWindow({bool shouldFocus = true}) async {
+    await windowManager.show();
     await windowManager.setOpacity(1);
 
     if (shouldFocus) {
-      await windowManager.show();
       final hasFocus = await windowManager.isFocused();
       if (!hasFocus) {
         await windowManager.focus();
