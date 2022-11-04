@@ -6,10 +6,13 @@ import 'color_picker_platform_interface.dart';
 class ColorPicker {
   Future<Color?> pick() async {
     await windowManager.ensureInitialized();
-    await _hideWindow();
-    final color = await ColorPickerPlatform.instance.pickColor();
-    await _showWindow(shouldFocus: color != null);
-    return color;
+    Color? color;
+    try {
+      await _hideWindow();
+      return color = await ColorPickerPlatform.instance.pickColor();
+    } finally {
+      await _showWindow(shouldFocus: color != null);
+    }
   }
 
   Future<void> _hideWindow() async {
